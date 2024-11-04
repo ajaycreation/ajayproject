@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'usertype',
     ];
 
     /**
@@ -44,5 +45,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected $attributes = [
+        'is_active' => true, // Default value for demonstration
+    ];
+
+    public function isActive()
+    {
+        return $this->is_active; // Assumes there's an 'is_active' field in the users table
     }
 }
